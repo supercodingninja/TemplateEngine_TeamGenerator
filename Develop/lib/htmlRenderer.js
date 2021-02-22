@@ -9,21 +9,21 @@ const render = employees => {
 
   html.push(...employees
     
-    .filter(employee => employee.getRole() === 'Manager')
+    .filter(employee => employee.findRole() === 'Manager')
     
     .map(manager => renderManager(manager))
   );
   
   html.push(...employees
     
-    .filter(employee => employee.getRole() === 'Engineer')
+    .filter(employee => employee.findRole() === 'Engineer')
     
     .map(engineer => renderEngineer(engineer))
   );
 
   html.push(...employees
     
-    .filter(employee => employee.getRole() === 'Intern')
+    .filter(employee => employee.findRole() === 'Intern')
     
     .map(intern => renderIntern(intern))
   );
@@ -36,15 +36,15 @@ const renderManager = manager => {
   
   let template = fs.readFileSync(path.resolve(templatesDir, 'manager.html'), 'utf8');
   
-  template = replacePlaceholders(template, 'name', manager.getName());
+  template = replacePlaceholders(template, 'name', manager.findName());
   
-  template = replacePlaceholders(template, 'role', manager.getRole());
+  template = replacePlaceholders(template, 'role', manager.findRole());
   
-  template = replacePlaceholders(template, 'email', manager.getEmail());
+  template = replacePlaceholders(template, 'email', manager.findEmail());
   
-  template = replacePlaceholders(template, 'id', manager.getId());
+  template = replacePlaceholders(template, 'id', manager.retrieveId());
   
-  template = replacePlaceholders(template, 'officeNumber', manager.getOfficeNumber());
+  template = replacePlaceholders(template, 'deskNumber', manager.findDN());
   
   return template;
 };
@@ -54,15 +54,15 @@ const renderEngineer = engineer => {
   
   let template = fs.readFileSync(path.resolve(templatesDir, 'engineer.html'), 'utf8');
   
-  template = replacePlaceholders(template, 'name', engineer.getName());
+  template = replacePlaceholders(template, 'name', engineer.findName());
   
-  template = replacePlaceholders(template, 'role', engineer.getRole());
+  template = replacePlaceholders(template, 'role', engineer.findRole());
   
-  template = replacePlaceholders(template, 'email', engineer.getEmail());
+  template = replacePlaceholders(template, 'email', engineer.findEmail());
   
-  template = replacePlaceholders(template, 'id', engineer.getId());
+  template = replacePlaceholders(template, 'id', engineer.findId());
   
-  template = replacePlaceholders(template, 'github', engineer.getGithub());
+  template = replacePlaceholders(template, 'Github', engineer.findGithubProfile());
   
   return template;
 };
@@ -72,15 +72,15 @@ const renderIntern = intern => {
   
   let template = fs.readFileSync(path.resolve(templatesDir, 'intern.html'), 'utf8');
   
-  template = replacePlaceholders(template, 'name', intern.getName());
+  template = replacePlaceholders(template, 'name', intern.findName());
   
-  template = replacePlaceholders(template, 'role', intern.getRole());
+  template = replacePlaceholders(template, 'role', intern.findRole());
   
-  template = replacePlaceholders(template, 'email', intern.getEmail());
+  template = replacePlaceholders(template, 'email', intern.findEmail());
   
-  template = replacePlaceholders(template, 'id', intern.getId());
+  template = replacePlaceholders(template, 'id', intern.findId());
   
-  template = replacePlaceholders(template, 'school', intern.getSchool());
+  template = replacePlaceholders(template, 'university', intern.findUniversity());
   
   return template;
 };
