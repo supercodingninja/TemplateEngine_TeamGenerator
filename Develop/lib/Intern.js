@@ -12,7 +12,7 @@ class Intern extends Employee {
 
     findRole() {
     
-        return "Intern";
+        return 'Intern';
     }
 
     retrieveUniversity() {
