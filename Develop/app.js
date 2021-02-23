@@ -143,11 +143,11 @@ function addEng() {
 
         .then(data => {
            
-            const {name, id, email, deskNumber} = data;
+            const {name, id, email, GitHub, tenure, promotion, promDept} = data;
            
             addMember = data.addMember;
            
-            const engineer = new Manager(name, id, email, deskNumber, tenure, personnel, promotion, promDept);
+            const engineer = new Manager(name, id, email, GitHub, tenure, promotion, promDept);
            
             employeesArr.push(engineer);
            
