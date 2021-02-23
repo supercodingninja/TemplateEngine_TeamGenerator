@@ -190,7 +190,17 @@ const empQ = [
     
         message:'Please state the tenure of the engineer.',
 
-        choices:
+        choices:['0-5 Years', '6-10 Years', '11-15 Years', '16-20 Years', '20+ Years']
+    },
+
+    {
+        type:'list',
+    
+        name:'promotion',
+    
+        message:'Please state if the engineer is promotable.',
+
+        choices:['Promotable', 'Not ready for protion.']   
     }
 ];
 
