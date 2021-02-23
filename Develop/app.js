@@ -8,15 +8,13 @@ const q = require('./lib/q')
 const inquirer = require('inquirer');
 const path = require('path');
 const fs = require('fs');
-const emailValidator = require('email-validator');
-const { Validator } = require('node-input-validator');
 
 // Output Paths required for the output file. //
 const OUTPUT_DIR = path.resolve(__dirname, 'output');
 const outputPath = path.join(OUTPUT_DIR, 'team.html');
 
 // Render file required. //
-const render = require('./lib/htmlRenderer');
+const renderToHTML = require('./lib/htmlRenderer');
 
 // Engage Queries. //
 const intQ = q.empQ;
@@ -88,6 +86,8 @@ function init() {
         .catch(err => {
             if (err) throw err;
         });
+    
+    return inquirer;
 };
 
 
@@ -101,7 +101,7 @@ function addInt() {
            
             addMember = data.addMember;
            
-            const intern = new Manager(name, id, email, GitHub, University, intFutRol);
+            const intern = new Intern(name, id, email, GitHub, University, intFutRol);
            
             employeesArr.push(intern);
            
@@ -110,6 +110,8 @@ function addInt() {
         .catch(err => {
             if (err) throw err;
         });
+    
+    return inquirer;
 };
 
 
@@ -123,7 +125,7 @@ function addEmp() {
            
             addMember = data.addMember;
            
-            const employee = new Manager(name, id, email, currDept, tenure, promotion, promDept);
+            const employee = new Employee(name, id, email, currDept, tenure, promotion, promDept);
            
             employeesArr.push(employee);
            
@@ -132,6 +134,8 @@ function addEmp() {
         .catch(err => {
             if (err) throw err;
         });
+
+    return inquirer;
 };
 
 
@@ -139,7 +143,7 @@ function addEng() {
     
     console.log('Time to build your team!');
     
-    mgrQ.Queries()
+    engQ.Queries()
 
         .then(data => {
            
@@ -147,7 +151,7 @@ function addEng() {
            
             addMember = data.addMember;
            
-            const engineer = new Manager(name, id, email, GitHub, tenure, promotion, promDept);
+            const engineer = new Engineer(name, id, email, GitHub, tenure, promotion, promDept);
            
             employeesArr.push(engineer);
            
@@ -156,6 +160,8 @@ function addEng() {
         .catch(err => {
             if (err) throw err;
         });
+
+    return inquirer;
 };
 
 
@@ -180,13 +186,21 @@ function addMgr() {
         .catch(err => {
             if (err) throw err;
         });
+
+        return inquirer;
 };
 
 
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
+// Aan array containing all employee objects.  The `renderToHTML` function will generate and return a block of HTML including templated divs for each employee. //
+function renderToHTML() {
 
+    const teamDataHTML = render(teamData);
+
+    fs.writeFile(outputPath, teamDataHTML, (err) => {
+        if (err) throw err;
+        console.log("Team HTML file created successfully in `output` directory.");
+    });
+};
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
