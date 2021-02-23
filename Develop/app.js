@@ -101,9 +101,9 @@ function addInt() {
            
             addMember = data.addMember;
            
-            const manager = new Manager(name, id, email, GitHub, University, intFutRol);
+            const intern = new Manager(name, id, email, GitHub, University, intFutRol);
            
-            employeesArr.push(manager);
+            employeesArr.push(intern);
            
             addTeamMember();
         })
@@ -115,19 +115,17 @@ function addInt() {
 
 function addEmp() {
     
-    console.log('Time to build your team!');
-    
-    mgrQ.Queries()
+    empQ.Queries()
 
         .then(data => {
            
-            const {name, id, email, deskNumber} = data;
+            const {name, id, email, currDept, tenure, promotion, promDept} = data;
            
             addMember = data.addMember;
            
-            const manager = new Manager(name, id, email, deskNumber, tenure, personnel, promotion, promDept);
+            const employee = new Manager(name, id, email, currDept, tenure, promotion, promDept);
            
-            employeesArr.push(manager);
+            employeesArr.push(employee);
            
             addTeamMember();
         })
@@ -149,9 +147,9 @@ function addEng() {
            
             addMember = data.addMember;
            
-            const manager = new Manager(name, id, email, deskNumber, tenure, personnel, promotion, promDept);
+            const engineer = new Manager(name, id, email, deskNumber, tenure, personnel, promotion, promDept);
            
-            employeesArr.push(manager);
+            employeesArr.push(engineer);
            
             addTeamMember();
         })
