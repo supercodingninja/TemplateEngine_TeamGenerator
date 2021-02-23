@@ -48,7 +48,7 @@ class userInquiries {
                     // Ref. https://www.npmjs.com/package/email-validator //
                     validate: emailValidator,
                 
-                    message: `What is the email address for this ${this.role}?`,
+                message: `What is the email address for this ${this.role}?`,
             },
 
             {
@@ -79,8 +79,8 @@ class userInquiries {
 
 // Some roles will have different requirements.  Below is a simplified method, rather than using long conditional statements. //
 const intQ = [
-    {
     
+    {
         type:'list',
         
         name:'GitHub',
@@ -90,7 +90,6 @@ const intQ = [
         choices: ['No.','Yes.' = [
             
                 {
-                
                     type: 'input',
                         
                     name: 'name',
@@ -111,7 +110,6 @@ const intQ = [
     },
 
     {
-    
         type:'list',
         
         name:'GitHub',
@@ -164,42 +162,66 @@ const intQ = [
 
 
 const empQ = [
+    
     {
+        type:'list',
     
-    type:'input',
+        name:'currDept',
     
-    name:'GitHub',
+        message:'Please state if the current department of the employee.',
+
+        choices:['Engineer', 'Marketing', 'Sales', 'Administration', 'Services'] 
+    },
     
-    message:'Please supply the GitHub username for your engineer.',
+    {
+        type:'list',
+    
+        name:'tenure',
+    
+        message:'Please state the tenure of the employee.',
+
+        choices:['0-5 Years', '6-10 Years', '11-15 Years', '16-20 Years', '20+ Years']
     },
 
     {
-        type:'input',
+        type:'list',
     
-        name:'GitHub',
+        name:'promotion',
     
-        message:'Please supply the GitHub username for your engineer.',
+        message:'Please state if the employee is promotable.',
+
+        choices:['Promotable', 'Not ready for promotion.'] 
+    },
+
+
+    {
+        type:'list',
+    
+        name:'promDept',
+    
+        message:'Please state the department the employee desires to be promoted to.',
+
+        choices:['Engineer', 'Marketing', 'Sales', 'Administration', 'Services'] 
     }
 ];
 
 
 const engQ = [
     {
-    
-    type:'input',
-    
-    name:'GitHub',
-    
-    message:'Please supply the GitHub username for your engineer.',
-
-    validate: function (value) {
-
-        // Ref. https://www.npmjs.com/package/node-input-validator //
-        var pass = value.match(Validator);
+        type:'input',
         
-        if (pass) {return true};
+        name:'GitHub',
         
-        return `Please enter a valid user name.`
+        message:'Please supply the GitHub username for your engineer.',
+
+        validate: function (value) {
+
+            // Ref. https://www.npmjs.com/package/node-input-validator //
+            var pass = value.match(Validator);
+            
+            if (pass) {return true};
+            
+            return `Please enter a valid user name.`
         }
     },
 
@@ -220,7 +242,7 @@ const engQ = [
     
         message:'Please state if the engineer is promotable.',
 
-        choices:['Promotable', 'Not ready for protion.']   
+        choices:['Promotable', 'Not ready for promotion.']   
     }
 ];
 
