@@ -172,7 +172,7 @@ const empQ = [
 
         choices:['Engineer', 'Marketing', 'Sales', 'Administration', 'Services'] 
     },
-    
+
     {
         type:'list',
     
@@ -207,6 +207,7 @@ const empQ = [
 
 
 const engQ = [
+    
     {
         type:'input',
         
@@ -243,6 +244,16 @@ const engQ = [
         message:'Please state if the engineer is promotable.',
 
         choices:['Promotable', 'Not ready for promotion.']   
+    },
+
+    {
+        type:'list',
+    
+        name:'promDept',
+    
+        message:'Please state the department the employee desires to be promoted to.',
+
+        choices:['Research & Developmet', 'Marketing', 'Sr. Engineer', 'Sr. Management', 'Executive'] 
     }
 ];
 
