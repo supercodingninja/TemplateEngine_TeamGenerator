@@ -194,11 +194,11 @@ function addMgr() {
 // Aan array containing all employee objects.  The `renderToHTML` function will generate and return a block of HTML including templated divs for each employee. //
 function renderToHTML() {
 
-    const teamDataHTML = render(teamData);
+    const team = render(employeesArr);
 
-    fs.writeFile(outputPath, teamDataHTML, (err) => {
+    fs.writeFile(outputPath, team, (err) => {
         if (err) throw err;
-        console.log("Team HTML file created successfully in `output` directory.");
+        console.log('team.HTML file has been created, successfully; and is located in the `output` directory.');
     });
 };
 
