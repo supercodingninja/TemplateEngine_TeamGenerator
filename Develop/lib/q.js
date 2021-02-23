@@ -251,7 +251,7 @@ const engQ = [
     
         name:'promDept',
     
-        message:'Please state the department the employee desires to be promoted to.',
+        message:'Please state the department the engineer desires to be promoted to.',
 
         choices:['Research & Developmet', 'Marketing', 'Sr. Engineer', 'Sr. Management', 'Executive'] 
     }
@@ -259,21 +259,45 @@ const engQ = [
 
 
 const mgrQ = [
+    
     {
+        type:'list',
     
-    type:'input',
+        name:'tenure',
     
-    name:'GitHub',
-    
-    message:'Please supply the GitHub username for your engineer.',
+        message:'Please state the tenure of the manager.',
+
+        choices:['0-5 Years', '6-10 Years', '11-15 Years', '16-20 Years', '20+ Years']
     },
 
     {
-        type:'input',
+        type:'list',
     
-        name:'GitHub',
+        name:'tenure',
     
-        message:'Please supply the GitHub username for your engineer.',
+        message:'Please state the amount of personnel the manager oversees.',
+
+        choices:['0-50 Personnel', '51-100 Personnel', '101-500 Personnel', '501-1000 Personnel', '1000-5k Personnel', '5k+ Personnel']
+    },
+
+    {
+        type:'list',
+    
+        name:'promotion',
+    
+        message:'Please state if the manager is promotable.',
+
+        choices:['Promotable', 'Not ready for promotion.']   
+    },
+
+    {
+        type:'list',
+    
+        name:'promDept',
+    
+        message:'Please state the department the manager desires to be promoted to.',
+
+        choices:['Research & Developmet', 'Marketing', 'Executive', 'Sr. Executive'] 
     }
 ];
 
