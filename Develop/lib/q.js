@@ -171,6 +171,26 @@ const empQ = [
     name:'GitHub',
     
     message:'Please supply the GitHub username for your engineer.',
+    },
+
+    {
+        type:'input',
+    
+        name:'GitHub',
+    
+        message:'Please supply the GitHub username for your engineer.',
+    }
+];
+
+
+const engQ = [
+    {
+    
+    type:'input',
+    
+    name:'GitHub',
+    
+    message:'Please supply the GitHub username for your engineer.',
 
     validate: function (value) {
 
@@ -201,26 +221,6 @@ const empQ = [
         message:'Please state if the engineer is promotable.',
 
         choices:['Promotable', 'Not ready for protion.']   
-    }
-];
-
-
-const engQ = [
-    {
-    
-    type:'input',
-    
-    name:'GitHub',
-    
-    message:'Please supply the GitHub username for your engineer.',
-    },
-
-    {
-        type:'input',
-    
-        name:'GitHub',
-    
-        message:'Please supply the GitHub username for your engineer.',
     }
 ];
 
