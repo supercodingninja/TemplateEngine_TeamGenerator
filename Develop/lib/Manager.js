@@ -13,7 +13,7 @@ class Manager extends Employee {
         return 'Manager';
     }
 
-    frndDN() {
+    findDN() {
         
         return this.deskNumber;
     }

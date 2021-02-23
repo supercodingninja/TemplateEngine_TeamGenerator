@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/supercodingninja/TemplateEngine_TeamGenerator/issues"
   },
-  "homepage": "https://github.com/supercodingninja/TemplateEngine_TeamGenerator#readme"
+  "homepage": "https://github.com/supercodingninja/TemplateEngine_TeamGenerator#readme",
+  "dependencies": {
+    "email-validator": "^2.0.4",
+    "inquirer": "^7.3.3",
+    "node-input-validator": "^4.3.3"
+  }
 }
