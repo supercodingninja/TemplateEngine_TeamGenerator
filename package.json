@@ -19,7 +19,9 @@
   "homepage": "https://github.com/supercodingninja/TemplateEngine_TeamGenerator#readme",
   "dependencies": {
     "email-validator": "^2.0.4",
+    "fs": "^0.0.1-security",
     "inquirer": "^7.3.3",
-    "node-input-validator": "^4.3.3"
+    "node-input-validator": "^4.3.3",
+    "path": "^0.12.7"
   }
 }

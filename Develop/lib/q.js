@@ -54,7 +54,7 @@ class userInquiries {
             {
                 type: 'list',
                 
-                name: 'memStat',
+                name: 'addMember',
                 
                 message: `Select which team member you would like to add.`,
                 
