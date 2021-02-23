@@ -268,7 +268,7 @@ const mgrQ = [
 
         validate: function (value) {
 
-            // Ref. https://www.npmjs.com/package/node-input-validator //
+            // Ref. https://www.npmjs.com/package/phone //
             var pass = value.match(phone);
             
             if (pass) {return true};
