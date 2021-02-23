@@ -1,34 +1,100 @@
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
-const inquirer = require("inquirer");
-const path = require("path");
-const fs = require("fs");
+// Required Classes. //
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+const q = require('./lib/q')
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+// Required Dependacies. //
+const inquirer = require('inquirer');
+const path = require('path');
+const fs = require('fs');
+const emailValidator = require('email-validator');
+const { Validator } = require('node-input-validator');
 
-const render = require("./lib/htmlRenderer");
+// Output Paths required for the output file. //
+const OUTPUT_DIR = path.resolve(__dirname, 'output');
+const outputPath = path.join(OUTPUT_DIR, 'team.html');
 
-const Questions = require("./lib/Questions");
-const intQ = Questions.intQ;
-const empQ = Questions.empQ;
-const engQ = Questions.engQ;
-const mgrQ = Questions.mgrQ;
+// Render file required. //
+const render = require('./lib/htmlRenderer');
 
-let teamArr = [];
+// Engage Queries. //
+const intQ = q.empQ;
+const empQ = q.empQ;
+const engQ = q.engQ;
+const mgrQ = q.mgrQ;
+
+// These declarations are for the function of adding team members. //
+let {memStat};
 let addMember;
 
+// This declaration is for the function intializing the team building generator. //
 init();
 
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
+// Code used by inquirer, to gather information about the development team members. //
+function addTeamMember() {
+
+    if ({memStat} === 'No additional members.') {
+
+    } else if (addMember === 'Intern') {
+        
+        addInt();
+
+    } else if (addMember === 'Employee') {
+
+        addEmp();
+
+    } else if (addMember === 'Engineer') {
+
+        addEng();
+
+    } else if (addMember === 'Manager') {
+
+        addMgr();
+
+    } else {
+
+        const html = render(teamArr);
+        
+        fs.writeFile(outputPath, html, (err) => {
+           
+            if (err) throw err;
+            
+            console.log('The team members written to file, and saved.');
+        });
+    }
+};
+
+
+function init() {
+    
+    console.log('Time to build your team!');
+    
+    mgrQ.Queries()
+
+        .then(data => {
+           
+            const {name, id, email, deskNumber} = data;
+           
+            addMember = data.addMember;
+           
+            const manager = new Manager(name, id, email, deskNumber, tenure, personnel, promotion, promDept);
+           
+            employeesArr.push(manager);
+           
+            addTeamMember();
+        })
+        .catch(err => {
+            if (err) throw err;
+        });
+};
 
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
+
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the

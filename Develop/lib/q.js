@@ -1,8 +1,9 @@
-// Query prompts Ref. https://github.com/SBoudrias/Inquirer.js/ //
+// Prompts were Ref. https://github.com/SBoudrias/Inquirer.js/; but I chose an easier method. //
 
 const inquirer = require('inquirer');
 const emailValidator = require('email-validator');
 const { Validator } = require('node-input-validator');
+const phone = require('phone');
 
 // Questions to ask the user. //
 class userInquiries {
@@ -54,7 +55,7 @@ class userInquiries {
             {
                 type: 'list',
                 
-                name: 'addMember',
+                name: 'memStat',
                 
                 message: `Select which team member you would like to add.`,
                 
@@ -261,6 +262,24 @@ const engQ = [
 const mgrQ = [
     
     {
+        type:'input',
+    
+        name:'deskNumber',
+
+        validate: function (value) {
+
+            // Ref. https://www.npmjs.com/package/node-input-validator //
+            var pass = value.match(phone);
+            
+            if (pass) {return true};
+            
+            return `Please enter a valid phone number.`
+        },
+    
+        message:'Please state the desk number to the manager.',
+    },
+
+    {
         type:'list',
     
         name:'tenure',
@@ -273,7 +292,7 @@ const mgrQ = [
     {
         type:'list',
     
-        name:'tenure',
+        name:'personnel',
     
         message:'Please state the amount of personnel the manager oversees.',
 
@@ -301,5 +320,5 @@ const mgrQ = [
     }
 ];
 
+module.exports = userInquiries;
 module.exports = {intQ, empQ, engQ, mgrQ};
-
