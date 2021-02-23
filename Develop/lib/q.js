@@ -113,7 +113,7 @@ const intQ = [
     {
         type:'list',
         
-        name:'GitHub',
+        name:'University',
         
         message:'Does the intern attend an university?',
 

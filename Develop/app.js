@@ -91,7 +91,98 @@ function init() {
 };
 
 
+function addInt() {
+    
+    intQ.Queries()
 
+        .then(data => {
+           
+            const {name, id, email, GitHub, University, intFutRol} = data;
+           
+            addMember = data.addMember;
+           
+            const manager = new Manager(name, id, email, GitHub, University, intFutRol);
+           
+            employeesArr.push(manager);
+           
+            addTeamMember();
+        })
+        .catch(err => {
+            if (err) throw err;
+        });
+};
+
+
+function addEmp() {
+    
+    console.log('Time to build your team!');
+    
+    mgrQ.Queries()
+
+        .then(data => {
+           
+            const {name, id, email, deskNumber} = data;
+           
+            addMember = data.addMember;
+           
+            const manager = new Manager(name, id, email, deskNumber, tenure, personnel, promotion, promDept);
+           
+            employeesArr.push(manager);
+           
+            addTeamMember();
+        })
+        .catch(err => {
+            if (err) throw err;
+        });
+};
+
+
+function addEng() {
+    
+    console.log('Time to build your team!');
+    
+    mgrQ.Queries()
+
+        .then(data => {
+           
+            const {name, id, email, deskNumber} = data;
+           
+            addMember = data.addMember;
+           
+            const manager = new Manager(name, id, email, deskNumber, tenure, personnel, promotion, promDept);
+           
+            employeesArr.push(manager);
+           
+            addTeamMember();
+        })
+        .catch(err => {
+            if (err) throw err;
+        });
+};
+
+
+function addMgr() {
+    
+    console.log('Time to build your team!');
+    
+    mgrQ.Queries()
+
+        .then(data => {
+           
+            const {name, id, email, deskNumber} = data;
+           
+            addMember = data.addMember;
+           
+            const manager = new Manager(name, id, email, deskNumber, tenure, personnel, promotion, promDept);
+           
+            employeesArr.push(manager);
+           
+            addTeamMember();
+        })
+        .catch(err => {
+            if (err) throw err;
+        });
+};
 
 
 // After the user has input all employees desired, call the `render` function (required
