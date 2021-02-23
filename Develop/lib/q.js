@@ -2,24 +2,65 @@
 
 const inquirer = require('inquirer');
 
-inquirer
- 
-    .prompt([
-    // Questions to ask the user. //
-
-    ])
-
-    .then(answers => {
-    // Use user feedback for... whatever!!
-    })
-
-    .catch(error => {
-
-    if(error.isTtyError) {
-
-        // Prompt couldn't be rendered in the current environment
-    } else {
+// Questions to ask the user. //
+class userInquiries {
+    
+    constructor(role) {
         
-        // Something else went wrong
+        this.questions = [
+            
+            {
+                type: 'input',
+                name: 'name',
+                message: `What ${this.role} do you wish to add?`,
+                
+                validate: function (value) {
+                    
+                    // Ref. https://github.com/supercodingninja/passwordGenerator/blob/main/pw.js, and see if there is an easier way to write this. // 
+                    var pass = value.match([abcdefghijklmnopqrstuvwxyz], [ABCDEFGHIJKLMNOPQRSTUVWUXYZ]);
+                    
+                    if (pass) { return true }
+                    return `A valid name does not include integers or special characters.`;
+                }
+            },
+
+            {
+                type: 'input',
+                name: 'id',
+                message: `State ${this.role} ID number?`,
+                validate: function (value) {
+                    var pass = value.match('~!@#$%^&*?0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWUXYZ'.split(''));
+                    if (pass) { return true }
+                    return `Please enter a valid employee ID number`
+                }
+            },
+
+            {
+                type: 'input',
+                name: 'email',
+                message: `What is the email address for this ${this.role}?`,
+                validate: function (value) {
+                    var pass = value.match('~!@#$%^&*?0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWUXYZ'.split(''));
+
+                    if (pass) { return true }
+                    return `Please enter a valid email address`;
+                }
+            },
+
+            {
+                type: 'list',
+                name: 'addMember',
+                message: `Select which team member you would like to add.`,
+                choices: ['Engineer', 'Intern', 'Employee', 'No more.']
+            },
+
+        this.role = role;
+
+    nextQuery(question) {
+        this.questions.splice(3, 0, question);
     }
-    });
+
+    nextQuery() {
+        return inquirer.prompt(this.questions);
+    }
+        ];
