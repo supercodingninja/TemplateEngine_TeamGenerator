@@ -5,9 +5,9 @@ const Intern = require('./lib/Intern');
 const q = require('./lib/q')
 
 // Required Dependacies. //
-const inquirer = require('inquirer');
-const path = require('path');
+const path = require('./output/team.html');
 const fs = require('fs');
+const inquirer = require('inquirer');
 
 // Output Paths required for the output file. //
 const OUTPUT_DIR = path.resolve(__dirname, 'output');
