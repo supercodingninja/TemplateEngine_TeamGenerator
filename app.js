@@ -116,7 +116,7 @@ function teamGenerator(response) {
                     validate: function (value) {
 
                         // Ref. https://www.npmjs.com/package/node-input-validator //
-                        var pass = value.match('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWUXYZ'.split(''));
+                        var pass = value.match(Validator);
                         
                         if (pass) { return true };
                         
