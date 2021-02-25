@@ -2,19 +2,101 @@
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const q = require('./lib/q')
 
 // Required Dependacies. //
 const path = require('./output/team.html');
 const fs = require('fs');
 const inquirer = require('inquirer');
+const emailValidator = require('email-validator');
+const {Validator} = require('node-input-validator');
+const phone = require('phone');
+// var q = require('app.js');
 
 // Output Paths required for the output file. //
 const OUTPUT_DIR = path.resolve(__dirname, 'output');
 const outputPath = path.join(OUTPUT_DIR, 'team.html');
 
-// Render file required. //
+// File to be rendered. //
 const renderToHTML = require('./lib/htmlRenderer');
+
+// This is how the team's data will be stored. //
+teamArr =[ ]; // Not sure, yet. //
+
+// Inquires for User generating the team. //
+function userPrompt {
+
+    return inquirer
+
+        .prompt ([
+            {
+                type: 'input',
+                
+                name: 'userName',
+
+                    validate: function (value) {
+
+                        // Ref. https://www.npmjs.com/package/node-input-validator //
+                        var pass = value.match(Validator);
+                        
+                        if (pass) {return true};
+                        
+                        return `Please enter a valid user name.`;
+                    },
+
+                message: `What is your name?`
+            },
+
+            {
+                type: 'list',
+                
+                name: 'userRole',
+
+                message: `What is your role?`,
+                
+                choices: ['Intern', 'Employee', 'Engineer', 'Manager']
+
+            },
+            
+            {
+                type: 'input',
+                
+                name: 'userID',
+
+                    validate: function (value) {
+
+                        // Ref. https://www.npmjs.com/package/node-input-validator //
+                        var pass = value.match('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWUXYZ'.split(''));
+                        
+                        if (pass) { return true };
+                        
+                        return `Please enter a valid ID number.`
+                    },
+                
+                message: `Please enter your ID number?`
+            },
+
+            {
+                type: 'input',
+                
+                name: 'userEmail',
+                
+                    // Ref. https://www.npmjs.com/package/email-validator //
+                    validate: emailValidator,
+                
+                message: `What is your email address?`,
+            },
+
+            {
+                type: 'list',
+                
+                name: 'addMember',
+                
+                message: `Select which team member you would like to add.`,
+                
+                choices: ['No additional members.', 'Intern', 'Employee', 'Engineer', 'Manager']
+            }
+        ])
+};
 
 // Engage Queries. //
 const intQ = q.empQ;
@@ -23,7 +105,6 @@ const engQ = q.engQ;
 const mgrQ = q.mgrQ;
 
 // These declarations are for the function of adding team members. //
-let {memStat};
 let addMember;
 
 // This declaration is for the function intializing the team building generator. //
@@ -33,7 +114,7 @@ init();
 // Code used by inquirer, to gather information about the development team members. //
 function addTeamMember() {
 
-    if ({memStat} === 'No additional members.') {
+    if (${response.member} === 'No additional members.') {
 
     } else if (addMember === 'Intern') {
         
@@ -79,7 +160,7 @@ function init() {
            
             const manager = new Manager(name, id, email, deskNumber, tenure, personnel, promotion, promDept);
            
-            employeesArr.push(manager);
+            teamArr.push(manager);
            
             addTeamMember();
         })
@@ -103,7 +184,7 @@ function addInt() {
            
             const intern = new Intern(name, id, email, GitHub, University, intFutRol);
            
-            employeesArr.push(intern);
+            teamArr.push(intern);
            
             addTeamMember();
         })
@@ -127,7 +208,7 @@ function addEmp() {
            
             const employee = new Employee(name, id, email, currDept, tenure, promotion, promDept);
            
-            employeesArr.push(employee);
+            teamArr.push(employee);
            
             addTeamMember();
         })
@@ -153,7 +234,7 @@ function addEng() {
            
             const engineer = new Engineer(name, id, email, GitHub, tenure, promotion, promDept);
            
-            employeesArr.push(engineer);
+            teamArr.push(engineer);
            
             addTeamMember();
         })
@@ -179,7 +260,7 @@ function addMgr() {
            
             const manager = new Manager(name, id, email, deskNumber, tenure, personnel, promotion, promDept);
            
-            employeesArr.push(manager);
+            teamArr.push(manager);
            
             addTeamMember();
         })
@@ -191,10 +272,10 @@ function addMgr() {
 };
 
 
-// Aan array containing all employee objects.  The `renderToHTML` function will generate and return a block of HTML including templated divs for each employee. //
+// An array containing all employee objects.  The `renderToHTML` function will generate and return a block of HTML including templated divs for each employee. //
 function renderToHTML() {
 
-    const team = render(employeesArr);
+    const team = render(teamArr);
 
     fs.writeFile(outputPath, team, (err) => {
         if (err) throw err;
