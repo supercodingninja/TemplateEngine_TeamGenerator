@@ -4,7 +4,7 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
 // Required Dependacies. //
-const path = require('./output/team.html');
+const path = require('path');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const emailValidator = require('email-validator');
@@ -62,7 +62,7 @@ function addTeamMember() {
 
 
 // An array containing all employee objects.  The `renderToHTML` function will generate and return a block of HTML including templated divs for each employee. //
-function renderToHTML() {
+function render() {
 
     const team = render(teamArr);
 
@@ -172,61 +172,87 @@ function teamGenerator(response) {
                 .prompt ([
 
                     {
-                        type:'list',
+                        type:'input',
                         
                         name:'GitHub',
-                        
-                        message:'Does the intern have a GitHub profile?',
-                
-                        choices: ['No.','Yes.' = [
+
+                        validate: function (value) {
+
+                            // Ref. https://www.npmjs.com/package/node-input-validator //
+                            var pass = value.match(Validator);
                             
-                                {
-                                    type: 'input',
+                            if (pass) {return true};
+                            
+                            return `Please enter a valid user name.`;
+                        },
+
+                        message: `Please enter the intern's GitHub profile.` 
+                        
+                        // message:'Does the intern have a GitHub profile?',
+                
+                        // choices: ['No.','Yes.'],
+                        
+                        //     if (Yes) {return true},
+                            
+                        //     return choices:
+                            
+                        //         {
+                        //             type: 'input',
                                         
-                                    name: 'GitHub',
-                                        validate: function (value) {
+                        //             name: 'GitHub',
+                        //                 validate: function (value) {
                 
-                                            var pass = value.match(Validator);
+                        //                     var pass = value.match(Validator);
                                             
-                                            if (pass) {return true};
+                        //                     if (pass) {return true};
                                             
-                                            return `Please enter a valid user name.`
-                                        },
+                        //                     return `Please enter a valid user name.`
+                        //                 },
                 
-                                    message: `Please enter the GitHub user name for the intern.`
-                                }
-                            ]
-                        ]
+                        //             message: `Please enter the GitHub user name for the intern.`
+                        //         }
                     },
                 
                     {
-                        type:'list',
+                        type:'input',
                         
                         name:'University',
-                        
-                        message:'Does the intern attend an university?',
-                
-                        choices: ['No.','Yes.' = [
-                                
-                                {
+
+                        validate: function (value) {
+
+                            // Ref. https://www.npmjs.com/package/node-input-validator //
+                            var pass = value.match(Validator);
                             
-                                    type: 'input',
+                            if (pass) {return true};
+                            
+                            return `Please enter a valid user name.`;
+                        },
+
+                        message: 'Please enter the university the intern attends.'
+                        
+                        // message:'Does the intern attend an university?',
+                
+                        // choices: ['No.','Yes.' = [
+                                
+                        //         {
+                            
+                        //             type: 'input',
                                         
-                                    name: 'name',
-                                        validate: function (value) {
+                        //             name: 'name',
+                        //                 validate: function (value) {
                 
-                                            // Ref. https://www.npmjs.com/package/node-input-validator //
-                                            var pass = value.match(Validator);
+                        //                     // Ref. https://www.npmjs.com/package/node-input-validator //
+                        //                     var pass = value.match(Validator);
                                             
-                                            if (pass) {return true};
+                        //                     if (pass) {return true};
                                             
-                                            return `Please enter a valid university.`
-                                        },
+                        //                     return `Please enter a valid university.`
+                        //                 },
                 
-                                    message: `Please enter the university the intern attends.`
-                                }
-                            ]
-                        ]
+                        //             message: `Please enter the university the intern attends.`
+                        //         }
+                        //     ]
+                        // ]
                     },
                 
                     {
@@ -234,19 +260,10 @@ function teamGenerator(response) {
                     
                         name:'intFutRol',
                     
-                        message:'Does the intern desire to obtain a future role with your company?',
+                        message:'State the position the future role the intern would like to obtain with your company.',
                 
-                        choices: ['No future role desired.', 'Yes' = [
-                            {
-                                type: 'list',
-                                
-                                name: 'futRole',
-                                
-                                message: `Select the desire role the intern desires.`,
-                                
-                                choices: ['Employee', 'Engineer', 'Manager']
-                            }
-                        ]]
+                        choices: ['Employee', 'Engineer', 'Manager']
+                            
                     }
                 ])
         

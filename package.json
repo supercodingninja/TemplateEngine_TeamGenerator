@@ -23,6 +23,7 @@
     "inquirer": "^7.3.3",
     "jest": "^26.6.3",
     "node-input-validator": "^4.3.3",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "phone": "^2.4.21"
   }
 }
