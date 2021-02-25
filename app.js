@@ -8,7 +8,7 @@ const path = require('path');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const emailValidator = require('email-validator');
-const {Validator} = require('node-input-validator');
+const Validator = require('node-input-validator');
 const phone = require('phone');
 // var q = require('app.js');
 
