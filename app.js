@@ -25,9 +25,6 @@ teamArr =[ ]; // Not sure, yet. //
 // These declarations are for the function of adding team members. //
 let addMember;
 
-// This declaration is for the function intializing the team building generator. //
-init();
-
 
 // Code used by inquirer, to gather information about the development team members. //
 function addTeamMember() {
@@ -500,3 +497,5 @@ function teamGenerator(response) {
                 module.exports = (userData, addInt, addEmp, addEng, addMgr);
         };
 };
+
+teamGenerator();
