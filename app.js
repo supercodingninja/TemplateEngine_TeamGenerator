@@ -113,15 +113,15 @@ function teamGenerator(response) {
                 
                 name: 'userID',
 
-                    validate: function (value) {
+                    // validate: function (value) {
 
-                        // Ref. https://www.npmjs.com/package/node-input-validator //
-                        var pass = value.match(Validator);
+                    //     // Ref. https://www.npmjs.com/package/node-input-validator //
+                    // //     var pass = value.match(Validator);
                         
-                        if (pass) { return true };
+                    // //     if (pass) { return true };
                         
-                        return `Please enter a valid ID number.`
-                    },
+                    // //     return `Please enter a valid ID number.`
+                    // // },
                 
                 message: `Please enter your ID number?`
             },
@@ -132,7 +132,7 @@ function teamGenerator(response) {
                 name: 'userEmail',
                 
                     // Ref. https://www.npmjs.com/package/email-validator //
-                    validate: emailValidator,
+                    // validate: emailValidator,
                 
                 message: `What is your email address?`,
             },
@@ -179,12 +179,12 @@ function teamGenerator(response) {
                         validate: function (value) {
 
                             // Ref. https://www.npmjs.com/package/node-input-validator //
-                            var pass = value.match(Validator);
+                        //     var pass = value.match(Validator);
                             
-                            if (pass) {return true};
+                        //     if (pass) {return true};
                             
-                            return `Please enter a valid user name.`;
-                        },
+                        //     return `Please enter a valid user name.`;
+                        // },
 
                         message: `Please enter the intern's GitHub profile.` 
                         
@@ -218,15 +218,15 @@ function teamGenerator(response) {
                         
                         name:'University',
 
-                        validate: function (value) {
+                        // validate: function (value) {
 
-                            // Ref. https://www.npmjs.com/package/node-input-validator //
-                            var pass = value.match(Validator);
+                        //     // Ref. https://www.npmjs.com/package/node-input-validator //
+                        //     var pass = value.match(Validator);
                             
-                            if (pass) {return true};
+                        //     if (pass) {return true};
                             
-                            return `Please enter a valid user name.`;
-                        },
+                        //     return `Please enter a valid user name.`;
+                        // },
 
                         message: 'Please enter the university the intern attends.'
                         
@@ -368,15 +368,15 @@ function teamGenerator(response) {
                         
                         message:'Please supply the GitHub username for your engineer.',
                 
-                        validate: function (value) {
+                        // validate: function (value) {
                 
-                            // Ref. https://www.npmjs.com/package/node-input-validator //
-                            var pass = value.match(Validator);
+                        //     // Ref. https://www.npmjs.com/package/node-input-validator //
+                        //     var pass = value.match(Validator);
                             
-                            if (pass) {return true};
+                        //     if (pass) {return true};
                             
-                            return `Please enter a valid user name.`
-                        }
+                        //     return `Please enter a valid user name.`
+                        // }
                     },
                 
                     {
@@ -441,15 +441,15 @@ function teamGenerator(response) {
                     
                         name:'deskNumber',
                 
-                        validate: function (value) {
+                        // validate: function (value) {
                 
-                            // Ref. https://www.npmjs.com/package/phone //
-                            var pass = value.match(phone);
+                        //     // Ref. https://www.npmjs.com/package/phone //
+                        //     var pass = value.match(phone);
                             
-                            if (pass) {return true};
+                        //     if (pass) {return true};
                             
-                            return `Please enter a valid phone number.`
-                        },
+                        //     return `Please enter a valid phone number.`
+                        // },
                     
                         message:'Please state the desk number to the manager.',
                     },
