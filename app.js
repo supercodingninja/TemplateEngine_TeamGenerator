@@ -176,7 +176,7 @@ function teamGenerator(response) {
                         
                         name:'GitHub',
 
-                        validate: function (value) {
+                        // validate: function (value) {
 
                             // Ref. https://www.npmjs.com/package/node-input-validator //
                         //     var pass = value.match(Validator);
