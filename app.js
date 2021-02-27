@@ -76,13 +76,13 @@ function render() {
 };
 
 
-// Function for role type. //
-function roleType () {
-    
+// Inquires for User generating the team. //
+function teamGenerator() {
+
     return inquirer
 
         .prompt([
-                
+            
             {
                 type: 'list',
 
@@ -93,15 +93,6 @@ function roleType () {
                 choices: ['Intern', 'Engineer', 'Manager','Quit']
             } 
         ])
-}
-
-
-// Inquires for User generating the team. //
-function teamGenerator() {
-
-    return inquirer
-
-        .prompt(roleType())
 
         .then(data => {
 
@@ -115,117 +106,118 @@ function teamGenerator() {
                 addTeamMember(data.role);
             }    
         })
+        
         .catch(err => {
             if (err) throw err;
         });
-
-    // If New Team Member Is An Intern. //
-    function addInt() {
         
-        employeeQ.push( {
-            
-            type: 'input',
+};
 
-            name: 'school',
- 
-            message: 'Please enter the university the intern attends.'
-        })
 
-        return inquirer
-
-            .prompt(employeeQ)
-
-            .then(data => {
-
-                const {name, id, email, school} = data;
-
-                const intern = new Intern(name, id, email, school);
-
-                teamArr.push(intern);
-
-                render();
-            })
-            
-            .catch(err => {
-                
-                if (err) throw err;
-            });
-    };
-
+// If New Team Member Is An Intern. //
+function addInt() {
     
-    // If New Team Member Is An Engineer. //
-    function addEng() {
+    employeeQ.push( {
         
-        employeeQ.push( {
-        
-            type: 'input',
+        type: 'input',
 
-            name: 'github',
- 
-            message: `Please enter the engineer's GitHub user name.`
+        name: 'school',
+
+        message: 'Please enter the university the intern attends.'
+    })
+
+    return inquirer
+
+        .prompt(employeeQ)
+
+        .then(data => {
+
+            const {name, id, email, school} = data;
+
+            // Passing the intern data class constructor. //
+            const intern = new Intern(name, id, email, school);
+
+            teamArr.push(intern);
+
+            render();
         })
-
-        return inquirer
-
-            .prompt(employeeQ)
-
-            .then(data => {
-
-                const {name, id, email, github} = data;
-
-                const engineer = new Engineer(name, id, email, github);
-
-                teamArr.push(engineer);
-
-                render();
-            })
+        
+        .catch(err => {
             
-            .catch(err => {
-                if (err) throw err;
-            });
-    };
+            if (err) throw err;
+        });
+};
 
 
-    // If New Team Member Is A Manager. //
-    function addMgr() {
-        
-        employeeQ.push({
-        
-            type: 'input',
+// If New Team Member Is An Engineer. //
+function addEng() {
+    
+    employeeQ.push( {
+    
+        type: 'input',
 
-            name: 'deskNumber',
- 
-            message: `Please enter the manager's desk number.`
+        name: 'github',
+
+        message: `Please enter the engineer's GitHub user name.`
+    })
+
+    return inquirer
+
+        .prompt(employeeQ)
+
+        .then(data => {
+
+            const {name, id, email, github} = data;
+
+            // Passing the engineer data class constructor. //
+            const engineer = new Engineer(name, id, email, github);
+
+            teamArr.push(engineer);
+
+            render();
         })
+        
+        .catch(err => {
+            if (err) throw err;
+        });
+};
 
-        return inquirer
 
-            .prompt(employeeQ)
+// If New Team Member Is A Manager. //
+function addMgr() {
+    
+    employeeQ.push({
+    
+        type: 'input',
 
-            .then(data => {
+        name: 'deskNumber',
 
-                const {name, id, email, github} = data;
+        message: `Please enter the manager's desk number.`
+    })
 
-                const engineer = new Manager(name, id, email, github);
+    return inquirer
 
-                teamArr.push(engineer);
+        .prompt(employeeQ)
 
-                render();
-            })
-            
-            .catch(err => {
-                if (err) throw err;
-            });
-    };
+        .then(data => {
 
-    addInt();
-    addEng();
-    addMgr();
-    roleType();
+            const {name, id, email, github} = data;
+
+            // Passing the manager data class constructor. //
+            const manager = new Manager(name, id, email, github);
+
+            teamArr.push(engineer);
+
+            render();
+        })
+        
+        .catch(err => {
+            if (err) throw err;
+        });
 };
 
 teamGenerator();
 
-render();
+render(teamArr);
 
 module.exports = teamArr;
