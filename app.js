@@ -7,8 +7,8 @@ const Intern = require('./lib/Intern');
 const path = require('path');
 const fs = require('fs');
 const inquirer = require('inquirer');
-const emailValidator = require('email-validator');
-// const Validator = require('node-input-validator');
+// const {Validator} = require('node-input-validator');
+
 // const phone = require('phone');
 
 // Output Paths required for the output file. //
@@ -30,8 +30,6 @@ let employeeQ = [
         type: 'input',
 
         name: 'name',
-
-        message: 'Please state your name.'
     },
 
     {
@@ -46,9 +44,12 @@ let employeeQ = [
         type: 'input',
 
         name: 'email',
-        
+
         message: 'Please state your email.'
-    }
+    },
+
+    // Ref. https://www.npmjs.com/package/node-input-validator //
+    Validator
 ];
 
 
@@ -70,7 +71,23 @@ function addTeamMember(addMember) {
 };
 
 
-// An array containing all employee objects.  The `renderToHTML` function will generate and return a block of HTML including templated divs for each employee. //
+// Validation. //
+// app.post('login', function (req, res) {
+//     const v = new Validator(req.body, {
+//       name: 'required|name',
+//       email: 'required|email',
+//       id: 'required|id'
+//     });
+  
+//     v.check().then((matched) => {
+//       if (!matched) {
+//         res.status(422).send(v.errors);
+//       }
+//     });
+//   });
+
+
+// This function will generate and return a block of HTML including templated divs for each employee, to ./lib/htmlRenderer.js //
 function render() {
 
     renderToHtml();
@@ -96,13 +113,13 @@ function teamGenerator() {
 
                 message: `What is your role?`,
 
-                choices: ['Intern', 'Engineer', 'Manager','No additional team members.  Generate team.  Quit CLI application.']
+                choices: ['Intern', 'Engineer', 'Manager', 'No additional team members.  Generate team.  Quit CLI application.']
             } 
         ])
 
         .then(data => {
 
-            if (data.role === "Quit") {
+            if (data.role === 'No additional team members.  Generate team.  Quit CLI application.') {
                 
                 render();
             }
@@ -201,6 +218,7 @@ function addMgr() {
         type: 'input',
 
         name: 'deskNumber',
+            // phone,
 
         message: `Please enter the manager's desk number.`
     })
