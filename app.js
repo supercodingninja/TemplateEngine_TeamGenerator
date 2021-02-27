@@ -7,7 +7,7 @@ const Intern = require('./lib/Intern');
 const path = require('path');
 const fs = require('fs');
 const inquirer = require('inquirer');
-// const emailValidator = require('email-validator');
+const emailValidator = require('email-validator');
 // const Validator = require('node-input-validator');
 // const phone = require('phone');
 
@@ -28,20 +28,26 @@ let addMember;
 let employeeQ = [
     {
         type: 'input',
+
         name: 'name',
+
         message: 'Please state your name.'
     },
 
     {
         type: 'input',
-        name: 'id'
-        , message: 'Please state your ID number.'
+
+        name: 'id',
+
+        message: 'Please state your ID number.'
     },
 
     {
         type: 'input',
-        name: 'email'
-        , message: 'Please state your email.'
+
+        name: 'email',
+        
+        message: 'Please state your email.'
     }
 ];
 
