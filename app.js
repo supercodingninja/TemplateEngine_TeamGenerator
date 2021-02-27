@@ -76,7 +76,7 @@ function render() {
 };
 
 
-// Inquires for User generating the team. //
+// Inquires for User to start generating a team. //
 function teamGenerator() {
 
     return inquirer
@@ -90,7 +90,7 @@ function teamGenerator() {
 
                 message: `What is your role?`,
 
-                choices: ['Intern', 'Engineer', 'Manager','Quit']
+                choices: ['Intern', 'Engineer', 'Manager','No additional team members.  Generate team.  Quit CLI application.']
             } 
         ])
 
