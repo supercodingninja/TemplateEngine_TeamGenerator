@@ -90,9 +90,9 @@ function addTeamMember(addMember) {
 // This function will generate and return a block of HTML including templated divs for each employee, to ./lib/htmlRenderer.js //
 function render() {
 
-    renderToHtml();
+    var html = renderToHTML(teamArr);
 
-    fs.writeFile(outputPath, teamArr, (err) => {
+    fs.writeFile(outputPath, html, (err) => {
         if (err) throw err;
         console.log('Your team is generated.');
     });
