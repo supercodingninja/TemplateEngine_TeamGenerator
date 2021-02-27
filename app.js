@@ -220,4 +220,6 @@ function addMgr() {
         });
 };
 
+teamGenerator();
+
 module.exports = teamArr;
