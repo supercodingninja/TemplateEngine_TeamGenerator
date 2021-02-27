@@ -67,11 +67,11 @@ function addTeamMember(addMember) {
 // An array containing all employee objects.  The `renderToHTML` function will generate and return a block of HTML including templated divs for each employee. //
 function render() {
 
-    renderToHtml(teamArr);
+    renderToHtml();
 
     fs.writeFile(outputPath, team, (err) => {
         if (err) throw err;
-        console.log('team.HTML file has been created, successfully; and is located in the `output` directory.');
+        console.log('Your team is generated.');
     });
 };
 
@@ -218,6 +218,6 @@ function addMgr() {
 
 teamGenerator();
 
-render(teamArr);
+render();
 
 module.exports = teamArr;
