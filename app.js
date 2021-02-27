@@ -140,6 +140,8 @@ function addInt() {
             teamArr.push(intern);
 
             render();
+
+            teamGenerator();
         })
         
         .catch(err => {
@@ -175,6 +177,8 @@ function addEng() {
             teamArr.push(engineer);
 
             render();
+
+            teamGenerator();
         })
         
         .catch(err => {
@@ -207,13 +211,13 @@ function addMgr() {
             const manager = new Manager(name, id, email, github);
 
             teamArr.push(manager);
+
+            teamGenerator();
         })
         
         .catch(err => {
             if (err) throw err;
         });
 };
-
-teamGenerator();
 
 module.exports = teamArr;
