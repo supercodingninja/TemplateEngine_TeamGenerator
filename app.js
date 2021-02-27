@@ -86,7 +86,7 @@ function teamGenerator() {
             {
                 type: 'list',
 
-                name: 'userRole',
+                name: 'role',
 
                 message: `What is your role?`,
 
