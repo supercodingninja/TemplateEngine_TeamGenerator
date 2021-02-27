@@ -69,7 +69,7 @@ function render() {
 
     renderToHtml();
 
-    fs.writeFile(outputPath, team, (err) => {
+    fs.writeFile(outputPath, teamArr, (err) => {
         if (err) throw err;
         console.log('Your team is generated.');
     });
@@ -206,9 +206,7 @@ function addMgr() {
             // Passing the manager data class constructor. //
             const manager = new Manager(name, id, email, github);
 
-            teamArr.push(engineer);
-
-            render();
+            teamArr.push(manager);
         })
         
         .catch(err => {
@@ -217,7 +215,5 @@ function addMgr() {
 };
 
 teamGenerator();
-
-render();
 
 module.exports = teamArr;
