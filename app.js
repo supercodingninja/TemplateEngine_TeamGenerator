@@ -65,9 +65,9 @@ function addTeamMember(addMember) {
 
 
 // An array containing all employee objects.  The `renderToHTML` function will generate and return a block of HTML including templated divs for each employee. //
-function renderToHTML() {
+function render() {
 
-    const team = render(teamArr);
+    renderToHtml(teamArr);
 
     fs.writeFile(outputPath, team, (err) => {
         if (err) throw err;
@@ -76,13 +76,13 @@ function renderToHTML() {
 };
 
 
-// Inquires for User generating the team. //
-function teamGenerator() {
-
+// Function for role type. //
+function roleType () {
+    
     return inquirer
 
         .prompt([
-            
+                
             {
                 type: 'list',
 
@@ -91,20 +91,28 @@ function teamGenerator() {
                 message: `What is your role?`,
 
                 choices: ['Intern', 'Engineer', 'Manager','Quit']
-
             } 
         ])
+}
+
+
+// Inquires for User generating the team. //
+function teamGenerator() {
+
+    return inquirer
+
+        .prompt(roleType())
 
         .then(data => {
 
-            if (data.userRole === "Quit") {
+            if (data.role === "Quit") {
                 
-                renderToHTML();
+                render();
             }
             
             else {
                 
-                addTeamMember(data.userRole);
+                addTeamMember(data.role);
             }    
         })
         .catch(err => {
@@ -135,7 +143,7 @@ function teamGenerator() {
 
                 teamArr.push(intern);
 
-                renderToHTML();
+                render();
             })
             
             .catch(err => {
@@ -169,7 +177,7 @@ function teamGenerator() {
 
                 teamArr.push(engineer);
 
-                renderToHTML();
+                render();
             })
             
             .catch(err => {
@@ -202,7 +210,7 @@ function teamGenerator() {
 
                 teamArr.push(engineer);
 
-                renderToHTML();
+                render();
             })
             
             .catch(err => {
@@ -213,10 +221,11 @@ function teamGenerator() {
     addInt();
     addEng();
     addMgr();
+    roleType();
 };
 
 teamGenerator(teamArr);
 
-renderToHTML(teamArr);
+render(teamArr);
 
 module.exports = teamArr;
