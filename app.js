@@ -224,8 +224,8 @@ function teamGenerator() {
     roleType();
 };
 
-teamGenerator(teamArr);
+teamGenerator();
 
-render(teamArr);
+render();
 
 module.exports = teamArr;
