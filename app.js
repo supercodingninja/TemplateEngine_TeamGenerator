@@ -135,7 +135,7 @@ function teamGenerator() {
 
                 teamArr.push(intern);
 
-                teamGenerator();
+                renderToHTML();
             })
             
             .catch(err => {
@@ -169,7 +169,7 @@ function teamGenerator() {
 
                 teamArr.push(engineer);
 
-                teamGenerator();
+                renderToHTML();
             })
             
             .catch(err => {
@@ -202,7 +202,7 @@ function teamGenerator() {
 
                 teamArr.push(engineer);
 
-                teamGenerator();
+                renderToHTML();
             })
             
             .catch(err => {
@@ -214,3 +214,7 @@ function teamGenerator() {
 };
 
 teamGenerator();
+
+renderToHTML();
+
+module.exports = teamArr;
