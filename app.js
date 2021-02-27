@@ -7,9 +7,9 @@ const Intern = require('./lib/Intern');
 const path = require('path');
 const fs = require('fs');
 const inquirer = require('inquirer');
-const emailValidator = require('email-validator');
-const Validator = require('node-input-validator');
-const phone = require('phone');
+// const emailValidator = require('email-validator');
+// const Validator = require('node-input-validator');
+// const phone = require('phone');
 
 // Output Paths required for the output file. //
 const OUTPUT_DIR = path.resolve(__dirname, 'output');
@@ -198,7 +198,7 @@ function teamGenerator() {
 
                 const {name, id, email, github} = data;
 
-                const engineer = new Engineer(name, id, email, github);
+                const engineer = new Manager(name, id, email, github);
 
                 teamArr.push(engineer);
 
@@ -210,11 +210,13 @@ function teamGenerator() {
             });
     };
 
-        module.exports = [addInt, addEng, addMgr];
+    addInt();
+    addEng();
+    addMgr();
 };
 
-teamGenerator();
+teamGenerator(teamArr);
 
-renderToHTML();
+renderToHTML(teamArr);
 
 module.exports = teamArr;
