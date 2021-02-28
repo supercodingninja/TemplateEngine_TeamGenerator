@@ -229,10 +229,10 @@ function addMgr() {
 
         .then(data => {
 
-            const {name, id, email, github} = data;
+            const {name, id, email, deskNumber} = data;
 
             // Passing the manager data class constructor. //
-            const manager = new Manager(name, id, email, github);
+            const manager = new Manager(name, id, email, deskNumber);
 
             teamArr.push(manager);
 
