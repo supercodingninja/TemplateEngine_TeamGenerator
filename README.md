@@ -1,174 +1,91 @@
-# Unit 10 OOP Homework: Template Engine - Employee Summary
+# TemplateEngine_TeamGenerator 
+##### ![script.js](Assets/Media/apple-touch-icon.png)
+![Badge](https://img.shields.io/badge/GitHub-Pro%20%20%20-blue)&nbsp;![Badge](https://img.shields.io/badge/GitHub-Arctic%20Code%20Vault%20Contributor-orange)&nbsp;<a href="https://github.com/supercodingninja" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg" alt="discoverfrederickthomas" height="30" width="30" /></a>&nbsp;<a href="https://linkedin.com/in/discoverfrederickthomas" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="discoverfrederickthomas" height="30" width="30"/></a>&nbsp;<a href="mailto:SuperCodingNinja@outlook.com" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/microsoftoutlook.svg" alt="supercodingninja" height="30" width="30"/></a>&nbsp;<a href="tel:+1919-525-0548" target="blank"><img align="center" src="Assets/Media/icons/iconfinder_device-iPhone-smartphone-vertical-glyph_763248.png" alt="Call Frederick" height="30" width="30"/></a>&nbsp;<a href="https://www.youtube.com/playlist?list=PLnxMwdxjTgTEN-xRODXLJ6sI5hgz1lFbu" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/youtube.svg" alt="# discoverfrederickthomas" height="30" width="30"/></a>&nbsp;<a href="https://fb.com/supercodingninja" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/facebook.svg" alt="supercodingninja" height="30" width="30"/></a>&nbsp;<a href="https://codepen.io/supercodingninja" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/codepen.svg" alt="supercodingninja" height="30" width="30"/></a>&nbsp;<a href="https://dev.to/supercodingninja" target="blank"><img align="center" src="Assets/Media/icons/dev_to_icon_130961.png" alt="supercodingninja" height="30" width="30"/></a>
+#### <i>TemplateEngine_TeamGenerator</i> © 2021 All Rights Reserved.  MIT All material must be cited or credited, when using material (free to use).
 
-One of the most important aspects of programming is writing code that is readable, reliable, and maintainable. Oftentimes, *how* we design our code is just as important as the code itself. In this homework assignment, your challenge is to build a Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person. Since testing is a key piece in making code maintainable, you will also be ensuring that all unit tests pass.
+## Table of Contents
+* [Repository Description](#Repository)
+* [User Story](#User)
+* [Usage Information](#Usage)
+* [Contribution Guidelines](#Contribution)
+* [References](#Ref)
+* [Acknowledgements](#Ack)
+* [Repositiory End-Goal Criterea](#Criterea)
 
-## Instructions
+## Repository Description
+###### [Back to Table of Contents](#Table-of-Contents)
+We live in a busy world; and thriving businesses are busier.  As a developer, who has joined a new team, you may be expected to inspect code; which you have never seen before.  Rather than having a team member explain every line for you, you can dissect the code, yourself!  This saves many unnecessary questions for team members; and provides you credibility for when you do ask.  Part of being a good developer is staying with the trend.  Learning new code and approaches are part of your great experiences as a developer.  The better you become at Reverse Engineering Code, the stronger you become as a Developer; and such a skill can also make refactoring code less challenging.  This may even be the difference between staying on task(s), maintaining a job; or even eceiving a promotion.  Don't worry, You got this: "HELLO, WORLD!"
 
-You will build a software engineering team generator command line application. The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. This assignment must also pass all unit tests. When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user. Following the [common templates for user stories](https://en.wikipedia.org/wiki/User_story#Common_templates), we can frame this challenge as follows:
+## User Story
+### As A Developer
+###### [Back to Table of Contents](#Table-of-Contents)
+1.   
+2.   
+3.   
+4.   
+5.   
+6.   
 
-```
-As a manager
-I want to generate a webpage that displays my team's basic info
-so that I have quick access to emails and GitHub profiles
-```
+## Usage Information
+###### [Back to Table of Contents](#Table-of-Contents)
+This repository is a great way to understand nodeJS and express.  Feel free to use it as a template for projects (build upon it, and write your own code), non-profit organizations, academic clubs; and much more!  Not for commercial use, unless granted by the author.
 
-How do you deliver this? Here are some guidelines:
+## Contribution Guidelines
+###### [Back to Table of Contents](#Table-of-Contents)
+I hope you enjoy this repository, and the application's link, given above and below (I love developing new projects).  Please feel free to fork and even collaborate with me on this awesome repository!  Thank you for viewing! - Frederick Thomas, [Super Coding Ninja™](https://github.com/supercodingninja).
 
-* Use the [Inquirer npm package](https://github.com/SBoudrias/Inquirer.js/) to prompt the user for their email, id, and specific information based on their role with the company. For instance, an intern may provide their school, whereas an engineer may provide their GitHub username.
+## Test Instructions
+###### [Back to Table of Contents](#Table-of-Contents)
+1.  Ensure that your application includes the require dependacies, by typing the commnd in your integrated terminal "npm install inquirer".
+2.  Create a .gitignore file and include node_modules/ and .DS_Store/ so that your node_modules directory isn't tracked or uploaded to GitHub.
+3.  Run node app.js
 
-* Your app will run as a Node CLI to gather information about each employee.
 
-* Below is an example of what your application may look like. Remember, the styling is completely up to you so try to make it unique.
+## Overview: What We Accomplished!
+###### Workflow [Back to Table of Contents](#Table-of-Contents)
+Created an awesome and generic ReadMe.md file; which can be utilize for future endeavors!  I hope you enjoy this repository, and the application's link, given above and below (I love developing new projects).  Please feel free to fork and even collaborate with me on this awesome repository!  Thank you for viewing! - Frederick Thomas, [Super Coding Ninja™](https://github.com/supercodingninja)
 
-![Employee Summary 1](./Assets/10-OOP-homework-demo-1.png)
-![Employee Summary 2](./Assets/10-OOP-homework-demo-2.png)
 
-In the `Develop` folder, there is a `package.json`, so make sure to `npm install`.
+### Media
+###### [Back to Table of Contents](#Table-of-Contents)
 
-The dependencies are, [jest](https://jestjs.io/) for running the provided tests, and [inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user.
+### Tests
 
-There are also unit tests to help you build the classes necessary.
+### Design
 
-It is recommended that you follow this workflow:
+### Building Upon The Developed Code
 
-1. Run tests
-2. Create or update classes to pass a single test case
-3. Repeat
+## References
+###### [Back to Table of Contents](#Table-of-Contents)
+1.  [NPMjs](https://www.npmjs.com/) provides Documentation, Installation, Examples, Methods, Objects, Questions, Answers, Separator, Prompt Types, User Interfaces and Layouts, Reactive Interface, Support, Known issues, News, Contributing, License, and Plugins.
 
-🎗 Remember, you can run the tests at any time with `npm run test`
+2.  [Shields IO](https://shields.io/) provides documentations on how to add your shield, for creditbility.  Please feel free to view this resource, for your future developments.
 
-It is recommended that you start with a directory structure that looks like this:
+3.  **[Eloquent JavaScript](https://eloquentjavascript.net/)**, 3rd edition (2018)
+This is a book about JavaScript, programming, and digital wonders. Read it online here; or get your own paperback copy.  Written by Marijn Haverbeke.  Licensed under a Creative Commons attribution-noncommercial license. All code in this book may also be considered licensed under an MIT license.
 
-```
-lib/           // classes and helper code
-output/        // rendered output
-templates/     // HTML template(s)
-test/          // jest tests
-  Employee.test.js
-  Engineer.test.js
-  Intern.test.js
-  Manager.test.js
-app.js         // Runs the application
-```
+5.  [Guide to Handlebars: Templating Engine for Node/JavaScript](https://stackabuse.com/guide-to-handlebars-templating-engine-for-node/) explains that express is a routing, and middleware is a web framework; which has minimal functionality of its own (express applications are series of middleware function calls).
 
-### Hints
+6.  [Markdown Syntax](https://www.markdownguide.org/basic-syntax/) provides documentations on how to add your shield, for creditbility.  Please feel free to view this resource, for your future developments.
 
-* Create multiple HTML templates for each type of user. For example, you could use the following templates:
+## Ackowledgements
+###### [Back to Table of Contents](#Table-of-Contents)
 
-  * `main.html`
+### Peer Code Review
 
-  * `engineer.html`
-  
-  * `intern.html`
-  
-  * `manager.html`
+CodeBase provided by [University of Washington](https://www.pce.uw.edu/), and [Trilogy Education](https://www.trilogyed.com/) (a 2U, Inc. brand),  in coorelation to their Seattle Partnership [UW Coding Bootcamp](https://bootcamp.uw.edu/).
 
-* You will want to make your methods as pure as possible. This means try to make your methods simple so that they are easier to test.
+## Repositiory End-Goal Criterea
+###### [Back to Table of Contents](#Table-of-Contents)
+Make it a point to tackle new code, weekly (at least, periodaclly); and break it down.  Try to understand the concepts, yourself.  This only makes you more credible, and a stonger developer: because you've taken the tim to study!  Remember this also, as a developer, your goal should be designing NEW experiences that makes people's lives simple; because as developers, we solve problems that people didn't even knew they had- even better, in a way that they do not understand: We are the super heroes and heriones of tomorrow; so get coding, and I hope this repository helps you along your development.  Stay on task, Get Ahead, Change The World! - [Frederick Thomas](https://www.linkedin.com/in/discoverfrederickthomas/), Super Coding Ninja™
 
-* The different employee types should all inherit some methods and properties from a base class of `Employee`.
+## License
+![MIT](https://img.shields.io/badge/License-MIT-blue)
 
-* In your HTML template files, you may want to add a placeholder character that helps your program identify where the dynamic markup begins and ends.
+<i>TemplateEngine_TeamGenerator</i><b>Copyright<b>  ©  2021 Frederick Thomas, [Super Coding Ninja™](https://github.com/supercodingninja).
 
-## Minimum Requirements
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-* Functional application.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-* GitHub repository with a unique name and a README describing the project.
-
-* User can use the CLI to generate an HTML page that displays information about their team.
-
-* All tests must pass.
-
-### Classes
-The project must have the these classes: `Employee`, `Manager`, `Engineer`,
-`Intern`. The tests for these classes in the `tests` directory must all pass.
-
-The first class is an `Employee` parent class with the following properties and
-methods:
-
-  * name
-  * id
-  * email
-  * getName()
-  * getId()
-  * getEmail()
-  * getRole() // Returns 'Employee'
-
-The other three classes will extend `Employee`. 
-
-In addition to `Employee`'s properties and methods, `Manager` will also have:
-
-  * officeNumber
-
-  * getRole() // Overridden to return 'Manager'
-
-In addition to `Employee`'s properties and methods, `Engineer` will also have:
-
-  * github  // GitHub username
-
-  * getGithub()
-
-  * getRole() // Overridden to return 'Engineer'
-
-In addition to `Employee`'s properties and methods, `Intern` will also have:
-
-  * school 
-
-  * getSchool()
-
-  * getRole() // Overridden to return 'Intern'
-
-### User input
-
-The project must prompt the user to build an engineering team. An engineering
-team consists of a manager, and any number of engineers and interns.
-
-### Roster output
-
-The project must generate a `team.html` page in the `output` directory, that displays a nicely formatted team roster. Each team member should display the following in no particular order:
-
-  * Name
-
-  * Role
-
-  * ID
-
-  * Role-specific property (School, link to GitHub profile, or office number)
-
-## Bonus
-
-* Use validation to ensure that the information provided is in the proper expected format.
-
-* Add the application to your portfolio.
-
-## Commit Early and Often
-
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
-
-* Your commit history is a signal to employers that you are actively working on projects and learning new skills.
-
-* Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
-
-Follow these guidelines for committing:
-
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
-
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
-
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
-
-* Test your application before you commit to ensure functionality at every step in the development process.
-
-We would like you to have well over 200 commits by graduation, so commit early and often!
-
-
-## Submission on BCS
-
-You are required to submit the following:
-
-* The URL of the GitHub repository
-
-* A video demonstrating the entirety of the app's functionality 
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+<sub>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</sub>
